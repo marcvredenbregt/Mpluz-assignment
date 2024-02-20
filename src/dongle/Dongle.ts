@@ -47,6 +47,7 @@ export abstract class Dongle {
         const DONGLE_SERIES_DIGIT = 3;
         const NO_3D_SUPPORT_SERIES = 1;
         const seriesNumber = parseInt(this.model.charAt(DONGLE_SERIES_DIGIT), 10);
+
         return seriesNumber > NO_3D_SUPPORT_SERIES;
     }
 }
