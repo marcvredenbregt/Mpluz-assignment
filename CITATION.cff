@@ -2,22 +2,15 @@
 # Visit https://bit.ly/cffinit to generate yours today!
 
 cff-version: 1.2.0
-title: TypeScript Boilerplate
+title: Mpluz Assignment
 message: >-
-  If you use this software, please cite it using the
-  metadata from this file.
 type: software
 authors:
-  - orcid: 'https://orcid.org/0009-0007-1865-1775'
-    given-names: Russel
-    family-names: Porosky
-    email: russelporosky@gmail.com
-repository-code: 'https://github.com/russelporosky/ts-boilerplate/'
-url: 'https://github.com/russelporosky/ts-boilerplate/'
-abstract: A lightweight TypeScript boilerplate for TDD.
+repository-code: 'https://github.com/vanhooferwin/mpluz-assignment/'
+url: 'https://github.com/vanhooferwin/mpluz-assignment/'
+abstract: A Typescript Assignment
 keywords:
   - typescript
   - tdd
-  - boilerplate
   - javascript
 license: MIT

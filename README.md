@@ -15,7 +15,7 @@ It uses `jest` for testing, `prettier` for formatting, and `typedoc` for documen
 This typescript codebase is a console application to simulate a Nexxis OR. It works 
 with a Router, Encoder(s) and Decoder(s).
 
-A Nexxis OR can have only one `Router`, this `Router` can have multiple `Dongles` (encoders, decoders and transcoders). An `Encoder` is an input device 
+A Nexxis OR can have only one `Router`, this `Router` can have multiple `Dongles` (encoders, decoders and transcoders). An `Encoder` is an input device....... 
 
 An `Encoder` and `Decoder` can have 1 or 2 connectors (inputs or outputs) depending on the model.   
 
