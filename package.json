@@ -1,0 +1,54 @@
+{
+  "name": "mpluz-assignment",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "TypeScript Mpluz* assignment for TDD.",
+  "scripts": {
+    "build": "tsc --project src/tsconfig.app.json",
+    "documentation": "typedoc",
+    "lint": "eslint --fix ./src",
+    "start": "tsx src/Router",
+    "start:watch": "nodemon --watch \"src/**\" --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"npx tsx ./src/App\"",
+    "prettier": "prettier --write \"src/**/*.ts\"",
+    "test": "tsc --noEmit -p . && jest --silent",
+    "test:coverage": "tsc --noEmit -p . && jest --silent --collectCoverage",
+    "test:watch": "tsc --noEmit -p . && jest --silent --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vanhooferwin/mpluz-tdd.git"
+  },
+  "keywords": [
+    "boilerplate",
+    "tdd",
+    "typescript"
+  ],
+  "author": "Erwin van Hoof <info@siteon.nl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vanhooferwin/mpluz-tdd/issues"
+  },
+  "homepage": "https://github.com/vanhooferwin/mpluz-tdd#readme",
+  "devDependencies": {
+    "@types/events": "^3.0.3",
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.11.19",
+    "@types/uuid": "^9.0.8",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsdoc": "^48.0.2",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-tsdoc": "^0.2.17",
+    "jest": "^29.7.0",
+    "prettier": "^3.2.2",
+    "ts-jest": "^29.1.1",
+    "typedoc": "^0.25.7",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "uuid": "^9.0.1"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "collectCoverageFrom": [
+    "./src/**"
+  ],
+  "coverageDirectory": "./coverage",
+  "coveragePathIgnorePatterns": [
+    "./src/App.ts", 
+    "./src/dongle/Dongle.ts", 
+    "./src/event/Events.ts"
+  ],
+  "coverageReporters": [
+    "json",
+    "lcov",
+    "text"
+  ],
+  "coverageThreshold": {
+    "global": {
+      "branches": 70,
+      "lines": 70
+    }
+  },
+  "moduleFileExtensions": [
+    "ts",
+    "js"
+  ],
+  "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|js)$",
+  "transform": {
+    ".ts": "ts-jest"
+  },
+  "testTimeout": 100000,
+  "verbose": false
+}
