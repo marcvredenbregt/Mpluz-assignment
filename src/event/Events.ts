@@ -26,7 +26,7 @@ export class Events {
   }
 
   /**
-   * Remove a listener from the event emitter
+   * Emit an event to the event emitter
    * @param event
    * @param args
    */
@@ -35,7 +35,7 @@ export class Events {
   }
 
   /**
-   * Remove a listener from the event emitter
+   * Remove all listener from the emitter for the given event or all events
    * @param event
    */
   removeAllListeners(event?: string): void {
