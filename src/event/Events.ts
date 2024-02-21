@@ -16,14 +16,29 @@ export class Events {
     // private constructor to prevent instantiation
   }
 
+  /**
+   * Add a listener to the event emitter
+   * @param event
+   * @param listener
+   */
   on(event: string, listener: (...args: unknown[]) => void): void {
     Events.getInstance().on(event, listener);
   }
 
+  /**
+   * Remove a listener from the event emitter
+   * @param event
+   * @param listener
+   */
   emit(event: string, ...args: unknown[]): void {
     Events.getInstance().emit(event, ...args);
   }
 
+  /**
+   * Remove a listener from the event emitter
+   * @param event
+   * @param listener
+   */
   removeAllListeners(event?: string): void {
     Events.getInstance().removeAllListeners(event);
   }

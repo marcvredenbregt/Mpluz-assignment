@@ -3,11 +3,17 @@ import { DongleModel } from '../dongle/DongleModel';
 import { Encoder } from '../encoder/Encoder';
 import { getRandomEnum } from './enumUtilities';
 
+/**
+ * Generate a random dongle
+ * @param ipPrefix
+ * @param type
+ * @returns
+ */
 export function generateRandomDongle(
   ipPrefix: string,
-  type: 'encoder' | 'decoder',
+  dongleType: 'encoder' | 'decoder',
 ): Encoder | Decoder {
-  const types = {
+  const dongleTypes = {
     encoder: Encoder,
     decoder: Decoder,
   };
@@ -15,9 +21,16 @@ export function generateRandomDongle(
   const MAX_IP = 255;
   const ip = `${ipPrefix}${Math.floor(Math.random() * MAX_IP)}`;
 
-  return new types[type](model, ip);
+  return new dongleTypes[dongleType](model, ip);
 }
 
+/**
+ * Get a random dongle
+ * @param dongles
+ * @returns
+ * @example
+ * const randomDongle = getRandomDongle([encoder1, encoder2, decoder1]);
+ */
 export function getRandomDongle<T>(dongles: T[]): T {
   const randomIndex = Math.floor(Math.random() * dongles.length);
 

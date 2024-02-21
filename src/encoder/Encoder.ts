@@ -17,24 +17,46 @@ export class Encoder extends Dongle {
     this.inputManager = new InputManager(this.id, this.connectors);
   }
 
+  /**
+   * Connect an input to the encoder
+   * @param id
+   */
   connectInput(id: number): void {
     this.inputManager.connectInput(id);
     this.events.emit('inputConnected', { id: this.id, input: id });
   }
 
+  /**
+   * Disconnect an input from the encoder
+   * @param id
+   */
   disconnectInput(id: number): void {
     this.inputManager.disconnectInput(id);
     this.events.emit('inputDisconnected', { id: this.id, input: id });
   }
 
+  /*
+   * Get the input object
+   * @param id
+   * @returns
+   */
   getInput(id: number): Input {
     return this.inputManager.getInput(id);
   }
 
+  /**
+   * Find an input by its inputId
+   * @param inputId
+   * @returns
+   */
   findInputId(inputId: string): Input | null {
     return this.inputManager.findInputId(inputId);
   }
 
+  /**
+   * Get all inputs
+   * @returns
+   */
   get inputCount(): number {
     return this.inputManager.length;
   }

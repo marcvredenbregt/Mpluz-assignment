@@ -1,3 +1,7 @@
+/**
+ * Dongle models
+ * @enum {string}
+ */
 export enum DongleModel {
   MNA110 = 'MNA110', // 1 input/output (HD)
   MNA120 = 'MNA120', // 2 inputs/outputs (HD)
