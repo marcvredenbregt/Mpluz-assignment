@@ -7,7 +7,7 @@
     "build": "tsc --project src/tsconfig.app.json",
     "documentation": "typedoc",
     "lint": "eslint --fix ./src",
-    "start": "tsx src/Router",
+    "start": "npx tsx src/App",
     "start:watch": "nodemon --watch \"src/**\" --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"npx tsx ./src/App\"",
     "prettier": "prettier --write \"src/**/*.ts\"",
     "test": "tsc --noEmit -p . && jest --silent",
