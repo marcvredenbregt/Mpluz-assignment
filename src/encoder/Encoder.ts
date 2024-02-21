@@ -43,6 +43,15 @@ export class Encoder extends Dongle {
     this.events.emit('inputDisconnected', { id: this.id, input: id });
   }
 
+  /**
+   * Turn off the encoder and disconnect
+   * @returns
+   */
+  turnOff(): void {
+    const INPUT = 1;
+    this.inputManager.disconnectInput(INPUT);
+  }
+
   /*
    * Get the input object
    * @param id

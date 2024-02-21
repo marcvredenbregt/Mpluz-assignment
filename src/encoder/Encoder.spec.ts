@@ -36,4 +36,15 @@ describe('Encoder', () => {
   it('should return the correct input count', () => {
     expect(encoder.inputCount).toBe(2);
   });
+
+  it('should turn off the encoder', () => {
+    for (let i = 1; i <= encoder.inputCount; i++) {
+      encoder.connectInput(i);
+    }
+    encoder.turnOff();
+    for (let i = 1; i <= encoder.inputCount; i++) {
+      const input = encoder.getInput(i);
+      expect(input.state).toEqual(InputState.NoSignal);
+    }
+  });
 });

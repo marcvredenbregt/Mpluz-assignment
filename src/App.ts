@@ -129,6 +129,34 @@ export const App = async (delayBetweenActions: number) => {
   encoders[7].disconnectInput(2);
   await delayAndClear(delayBetweenActions);
 
+  console.log(
+    `==============================================================================================`,
+  );
+  console.log(`OR-1 - Maximum resolutions`);
+  console.log(
+    `==============================================================================================`,
+  );
+
+  encoders.forEach((encoder, index) => {
+    console.log(
+      `Encoder ${index + 1}: model ${encoder.model} - maximum resolution: ${encoder.maxResolution}, supports: ${encoder.supports3D ? '3D' : '2D'}`,
+    );
+  });
+  console.log(
+    `---------------------------------------------------------------------------------------------`,
+  );
+
+  decoders.forEach((decoder, index) => {
+    console.log(
+      `Decoder ${index + 1}: model ${decoder.model} - maximum resolution: ${decoder.maxResolution}`,
+    );
+  });
+  console.log(
+    `---------------------------------------------------------------------------------------------`,
+  );
+
+  await delayAndClear(delayBetweenActions);
+
   return 'success';
 };
 

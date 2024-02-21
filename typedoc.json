@@ -1,7 +1,7 @@
 {
   "entryPoints": ["./src"],
   "entryPointStrategy": "expand",
-  "exclude": ["**/*+(index|.spec|.e2e).ts"],
+  "exclude": ["**/*+(index|.spec|.e2e).ts", "**/node_modules/**"],
   "includeVersion": true,
   "out": "./documentation",
   "searchInComments": true,
