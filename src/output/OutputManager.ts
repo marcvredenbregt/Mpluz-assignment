@@ -1,12 +1,12 @@
-import { Input } from "../input/Input";
-import { Output } from "./Output";
-import { OutputState } from "./OutputState";
-import { InputState } from "../input/InputState";
+import { Input } from '../input/Input';
+import { Output } from './Output';
+import { OutputState } from './OutputState';
+import { InputState } from '../input/InputState';
 const ZERO_INDEX_CORRECTION = 1;
 
 export class OutputManager {
   private readonly outputs: Output[] = [];
-  
+
   constructor(decoderId: string, outputCount: number) {
     this.createOutputs(outputCount, decoderId);
   }
@@ -50,9 +50,11 @@ export class OutputManager {
   }
 
   unrouteNoSignalInputs(): void {
-    this.outputs.forEach(output => {
+    this.outputs.forEach((output) => {
       if (output.routedInput?.state === InputState.NoSignal) {
-        console.log(` - unrouting output ${output.id} because input has no signal`);
+        console.log(
+          ` - unrouting output ${output.id} because input has no signal`,
+        );
         output.unroute();
       }
     });

@@ -1,18 +1,18 @@
-import { Dongle } from "../dongle/Dongle";
-import { DongleModel } from "../dongle/DongleModel";
-import { DongleType } from "../dongle/DongleType";
-import { Input } from "../input/Input";
-import { Output } from "../output/Output";
-import { Events } from "../event/Events";
-import { OutputManager } from "../output/OutputManager";
+import { Dongle } from '../dongle/Dongle';
+import { DongleModel } from '../dongle/DongleModel';
+import { DongleType } from '../dongle/DongleType';
+import { Input } from '../input/Input';
+import { Output } from '../output/Output';
+import { Events } from '../event/Events';
+import { OutputManager } from '../output/OutputManager';
 
 export class Decoder extends Dongle {
   private readonly outputManager: OutputManager;
 
   constructor(
-    model: DongleModel, 
+    model: DongleModel,
     ip: string,
-    events: Events = Events.getInstance()
+    events: Events = Events.getInstance(),
   ) {
     super(model, DongleType.Decoder, ip);
     this.outputManager = new OutputManager(this.id, this.connectors);
@@ -21,7 +21,7 @@ export class Decoder extends Dongle {
 
   /**
    * Connect a destination (e.g. monitor) to an output
-   * @param id 
+   * @param id
    */
   connectOutput(id: number): void {
     this.outputManager.connectOutput(id);
@@ -29,7 +29,7 @@ export class Decoder extends Dongle {
 
   /**
    * Disconnect a destination (e.g. monitor) from an output
-   * @param id 
+   * @param id
    */
   disconnectOutput(id: number): void {
     this.outputManager.disconnectOutput(id);
@@ -37,8 +37,8 @@ export class Decoder extends Dongle {
 
   /**
    * Get the output by id
-   * @param id 
-   * @returns 
+   * @param id
+   * @returns
    */
   getOutput(id: number): Output {
     return this.outputManager.getOutput(id);
@@ -46,8 +46,8 @@ export class Decoder extends Dongle {
 
   /**
    * Route an input to an output
-   * @param id 
-   * @param input 
+   * @param id
+   * @param input
    */
   routeOutput(id: number, input: Input): void {
     this.outputManager.routeOutput(id, input);
@@ -55,7 +55,7 @@ export class Decoder extends Dongle {
 
   /**
    * Unroute an input from an output
-   * @param id 
+   * @param id
    */
   unrouteOutput(id: number): void {
     this.outputManager.unrouteOutput(id);
@@ -63,7 +63,7 @@ export class Decoder extends Dongle {
 
   /**
    * Handle input disconnected event
-   * @param _event 
+   * @param _event
    */
   private handleInputDisconnected(): void {
     console.log(`Handling input disconnected on decoder`);

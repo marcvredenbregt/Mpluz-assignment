@@ -7,17 +7,19 @@ import { Decoder } from '../decoder/Decoder';
 
 const or = {
   valid: 'OR 1',
-  invalid: ''
+  invalid: '',
 };
 
 const ip = {
   valid: '10.74.25.10',
-  invalid: 'abc'
-}
+  invalid: 'abc',
+};
 
 describe('Router initializing', () => {
   it('Router should be a class which throws when initiated an invalid OR', () => {
-    expect(() => new Router(or.invalid, ip.valid)).toThrow('OR cannot be empty');
+    expect(() => new Router(or.invalid, ip.valid)).toThrow(
+      'OR cannot be empty',
+    );
   });
 
   it('Router should be a class which throws when initiated an invalid ip', () => {
@@ -43,7 +45,7 @@ describe('Router initializing', () => {
 
   it('Router should return one encoder when added', () => {
     const router = new Router(or.valid, ip.valid);
-    const encoder = new Encoder(DongleModel.MNA240, '10.74.25.1'); 
+    const encoder = new Encoder(DongleModel.MNA240, '10.74.25.1');
     router.addEncoder(encoder);
     expect(router.encoders).toEqual([encoder]);
   });
@@ -62,7 +64,7 @@ describe('Router initializing', () => {
 
   it('Router should route an encoder to a decoder', () => {
     const router = new Router(or.valid, ip.valid);
-    const encoder = new Encoder(DongleModel.MNA240, '10.74.25.1'); 
+    const encoder = new Encoder(DongleModel.MNA240, '10.74.25.1');
     encoder.connectInput(1);
     router.addEncoder(encoder);
     const decoder = new Decoder(DongleModel.MNA240, '10.74.25.2');
@@ -74,13 +76,30 @@ describe('Router initializing', () => {
 
   it('Router should throw when routing an encoder to a decoder with invalid input', () => {
     const router = new Router(or.valid, ip.valid);
-    const encoder = new Encoder(DongleModel.MNA240, '10.74.25.1'); 
+    const encoder = new Encoder(DongleModel.MNA240, '10.74.25.1');
     encoder.connectInput(1);
     router.addEncoder(encoder);
     const decoder = new Decoder(DongleModel.MNA240, '10.74.25.2');
     decoder.connectOutput(1);
     router.addDecoder(decoder);
-    expect(() => router.route(encoder, 1, decoder, 5)).toThrow('Input or output not found');
+    expect(() => router.route(encoder, 1, decoder, 5)).toThrow(
+      'Input or output not found',
+    );
   });
-  
+
+  it('Router should remove an encoder when removeEncoder is called', () => {
+    const router = new Router(or.valid, ip.valid);
+    const encoder = new Encoder(DongleModel.MNA240, '10.74.25.1');
+    router.addEncoder(encoder);
+    router.removeEncoder(encoder);
+    expect(router.encoders).toEqual([]);
+  });
+
+  it('Router should remove a decoder when removeDecoder is called', () => {
+    const router = new Router(or.valid, ip.valid);
+    const decoder = new Decoder(DongleModel.MNA240, '10.74.25.2');
+    router.addDecoder(decoder);
+    router.removeDecoder(decoder);
+    expect(router.decoders).toEqual([]);
+  });
 });
