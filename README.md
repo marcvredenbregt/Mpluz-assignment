@@ -14,8 +14,7 @@ It uses `jest` for testing, `prettier` for formatting, and `typedoc` for documen
 
 ### Intro
 
-This typescript codebase is a console application to simulate a Nexxis OR. It works
-with a router, encoders and decoders. The encoders have video inputs wich can be routed to a decoder which has outputs. For this to happen the encoder must have a video signal on the input and the decoder must have a destination connected to an output (e.g. monitor).
+This TypeScript codebase is a console application to simulate a Nexxis OR. It works with a router, encoders, and decoders. The encoders have video inputs which can be routed to a decoder which has outputs. For this to happen, the encoder must have a video signal on the input, and the decoder must have a destination connected to an output (e.g., monitor).
 
 ### Details
 
@@ -49,7 +48,7 @@ The assignment consists of three parts:
 2. A new feature
 3. A change of handling events
 
-Each part should be a seperate branch on the code base. To start working a new branch do a checkout while creating the branch e.g. `git checkout -b MP-001-Bugfix`. Create a NOTES.md in the root of the project with a description of the steps that will be taken to solve each part, commit each piece of finished code so it is easy to track progess to your choosen solution.
+Each part should be a separate branch on the codebase. To start working on a new branch, do a checkout while creating the branch, e.g., git checkout -b MP-001-Bugfix. Create a NOTES.md file in the root of the project with a description of the steps that will be taken to solve each part. Commit each piece of finished code so it is easy to track progress to your chosen solution.
 
 ### Bugfix (MP-001)
 
@@ -57,8 +56,7 @@ One of the test is failing. Please find out why and fix the problem.
 
 ### New feature (MP-002)
 
-Dongles have a lot of properties, but is it not possible to give them a label for easy reference. Please add the feature to the Dongles so that a label can be added to an Encoder and Decoder.
-If provided, the label should be a string of max 15 characters. The label should be accessible via a getter.
+Dongles have a lot of properties, but it is not possible to give them a label for easy reference. Please add the feature to the Dongles so that a label can be added to an Encoder and Decoder. If provided, the label should be a string of max 15 characters. The label should be accessible via a getter.
 
 example:
 
@@ -72,7 +70,7 @@ console.log(encoder.label);
 
 ### Change of event handling (MP-003)
 
-The event listeners are now initiated in the Outputs via:
+The event listeners are now initiated in the `Outputs` via:
 `events.on('inputDisconnected', () => this.handleInputDisconnected());`
 
-With this solution there is alot of overhead as can be seen in the console at `OR-1 - Disconnecting`. Each output has its own listener. Please optimize the handling of events so that there is only one eventlistener per `Router`.
+With this solution, there is a lot of overhead as can be seen in the console at `OR-1 - Disconnecting`. Each `Output` has its own listener. Please optimize the handling of events so that there is only one event listener per `Router`.
