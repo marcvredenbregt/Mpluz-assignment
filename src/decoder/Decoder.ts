@@ -63,7 +63,6 @@ export class Decoder extends Dongle {
 
   /**
    * Handle input disconnected event
-   * @param _event
    */
   private handleInputDisconnected(): void {
     console.log(`Handling input disconnected on decoder`);

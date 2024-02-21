@@ -28,7 +28,7 @@ export class Events {
   /**
    * Remove a listener from the event emitter
    * @param event
-   * @param listener
+   * @param args
    */
   emit(event: string, ...args: unknown[]): void {
     Events.getInstance().emit(event, ...args);
@@ -37,7 +37,6 @@ export class Events {
   /**
    * Remove a listener from the event emitter
    * @param event
-   * @param listener
    */
   removeAllListeners(event?: string): void {
     Events.getInstance().removeAllListeners(event);

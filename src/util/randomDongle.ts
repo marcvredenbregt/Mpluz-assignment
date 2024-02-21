@@ -6,7 +6,7 @@ import { getRandomEnum } from './enumUtilities';
 /**
  * Generate a random dongle
  * @param ipPrefix
- * @param type
+ * @param dongleType
  * @returns
  */
 export function generateRandomDongle(
