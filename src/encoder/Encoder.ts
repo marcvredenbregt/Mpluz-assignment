@@ -8,6 +8,14 @@ import { InputManager } from '../input/InputManager';
 export class Encoder extends Dongle {
   private readonly inputManager: InputManager;
 
+  /**
+   * Create an encoder object with a model and ip
+   * @param model
+   * @param ip
+   * @param events
+   * @example
+   * const encoder = new Encoder(DongleModel.MNA420, '10.74.25.222');
+   */
   constructor(
     model: DongleModel,
     ip: string,

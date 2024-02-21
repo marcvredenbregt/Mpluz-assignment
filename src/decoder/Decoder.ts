@@ -9,6 +9,14 @@ import { OutputManager } from '../output/OutputManager';
 export class Decoder extends Dongle {
   private readonly outputManager: OutputManager;
 
+  /**
+   * Create a decoder object with a model and ip
+   * @param model
+   * @param ip
+   * @param events
+   * @example
+   * const decoder = new Decoder(DongleModel.MNA420, '10.74.25.110');
+   */
   constructor(
     model: DongleModel,
     ip: string,
