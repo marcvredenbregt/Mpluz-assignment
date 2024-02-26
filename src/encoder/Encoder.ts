@@ -48,8 +48,9 @@ export class Encoder extends Dongle {
    * @returns
    */
   turnOff(): void {
-    const INPUT = 1;
-    this.inputManager.disconnectInput(INPUT);
+    for (let i = 1; i <= this.inputCount; i++) {
+      this.inputManager.disconnectInput(i);
+    }
   }
 
   /*
