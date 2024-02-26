@@ -8,7 +8,7 @@ describe('Encoder', () => {
   let encoder: Encoder;
 
   beforeEach(() => {
-    encoder = new Encoder(DongleModel.MNA240, '192.168.0.1');
+    encoder = new Encoder(DongleModel.MNA240, '192.168.0.1', 'CAMERA 1');
   });
 
   it('should connect an input', () => {

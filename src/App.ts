@@ -29,7 +29,7 @@ export const App = async (delayBetweenActions: number) => {
   ) as Decoder[];
 
   // create last encoder with 2 inputs
-  encoders.push(new Encoder(DongleModel.MNA440, `${ipPrefix}111`));
+  encoders.push(new Encoder(DongleModel.MNA440, `${ipPrefix}111`, 'CAMERA 1'));
 
   console.log(
     `==============================================================================================`,

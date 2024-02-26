@@ -24,10 +24,10 @@ describe('generateRandomDongle', () => {
 describe('getRandomDongle', () => {
   it('should return a random dongle from the given array', () => {
     const dongles: Encoder[] = [
-      new Encoder(DongleModel.MNA240, '192.168.0.1'),
-      new Encoder(DongleModel.MNA120, '192.168.0.2'),
-      new Encoder(DongleModel.MNA420, '192.168.0.3'),
-      new Encoder(DongleModel.MNA240, '192.168.0.4'),
+      new Encoder(DongleModel.MNA240, '192.168.0.1', 'CAMERA 1'),
+      new Encoder(DongleModel.MNA120, '192.168.0.2', 'CAMERA 2'),
+      new Encoder(DongleModel.MNA420, '192.168.0.3', 'CAMERA 3'),
+      new Encoder(DongleModel.MNA240, '192.168.0.4', 'CAMERA 4'),
     ];
     const randomDongle = getRandomDongle(dongles);
     expect(dongles).toContain(randomDongle);

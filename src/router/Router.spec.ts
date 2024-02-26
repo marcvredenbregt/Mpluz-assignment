@@ -45,7 +45,7 @@ describe('Router initializing', () => {
 
   it('Router should return one encoder when added', () => {
     const router = new Router(or.valid, ip.valid);
-    const encoder = new Encoder(DongleModel.MNA240, '10.74.25.1');
+    const encoder = new Encoder(DongleModel.MNA240, '10.74.25.1', 'CAMERA 1');
     router.addEncoder(encoder);
     expect(router.encoders).toEqual([encoder]);
   });
@@ -57,17 +57,17 @@ describe('Router initializing', () => {
 
   it('Router should return one decoder when added', () => {
     const router = new Router(or.valid, ip.valid);
-    const decoder = new Decoder(DongleModel.MNA240, '10.74.25.2');
+    const decoder = new Decoder(DongleModel.MNA240, '10.74.25.2', 'MONITOR 1');
     router.addDecoder(decoder);
     expect(router.decoders).toEqual([decoder]);
   });
 
   it('Router should route an encoder to a decoder', () => {
     const router = new Router(or.valid, ip.valid);
-    const encoder = new Encoder(DongleModel.MNA240, '10.74.25.1');
+    const encoder = new Encoder(DongleModel.MNA240, '10.74.25.1', 'CAMERA 1');
     encoder.connectInput(1);
     router.addEncoder(encoder);
-    const decoder = new Decoder(DongleModel.MNA240, '10.74.25.2');
+    const decoder = new Decoder(DongleModel.MNA240, '10.74.25.2', 'MONITOR 1');
     decoder.connectOutput(1);
     router.addDecoder(decoder);
     router.route(encoder, 1, decoder, 1);
@@ -76,10 +76,10 @@ describe('Router initializing', () => {
 
   it('Router should throw when routing an encoder to a decoder with invalid input', () => {
     const router = new Router(or.valid, ip.valid);
-    const encoder = new Encoder(DongleModel.MNA240, '10.74.25.1');
+    const encoder = new Encoder(DongleModel.MNA240, '10.74.25.1', 'CAMERA 1');
     encoder.connectInput(1);
     router.addEncoder(encoder);
-    const decoder = new Decoder(DongleModel.MNA240, '10.74.25.2');
+    const decoder = new Decoder(DongleModel.MNA240, '10.74.25.2', 'MONITOR 1');
     decoder.connectOutput(1);
     router.addDecoder(decoder);
     expect(() => router.route(encoder, 1, decoder, 5)).toThrow(
@@ -89,7 +89,7 @@ describe('Router initializing', () => {
 
   it('Router should remove an encoder when removeEncoder is called', () => {
     const router = new Router(or.valid, ip.valid);
-    const encoder = new Encoder(DongleModel.MNA240, '10.74.25.1');
+    const encoder = new Encoder(DongleModel.MNA240, '10.74.25.1', 'CAMERA 1');
     router.addEncoder(encoder);
     router.removeEncoder(encoder);
     expect(router.encoders).toEqual([]);
@@ -97,7 +97,7 @@ describe('Router initializing', () => {
 
   it('Router should remove a decoder when removeDecoder is called', () => {
     const router = new Router(or.valid, ip.valid);
-    const decoder = new Decoder(DongleModel.MNA240, '10.74.25.2');
+    const decoder = new Decoder(DongleModel.MNA240, '10.74.25.2', 'MONITOR 1');
     router.addDecoder(decoder);
     router.removeDecoder(decoder);
     expect(router.decoders).toEqual([]);

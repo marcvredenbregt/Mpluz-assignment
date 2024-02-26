@@ -1,14 +1,15 @@
 Steps taken:
 
-Run test with 'npm run test' command.
+1 ADD NEW PROPERTY 'LABEL'
 
-Check file Encoder.spec.ts line 47 on failed test.
+Add property 'label' to Dongle, Encoder and Decoder class.
 
-Failure caused by an InputState not equal to 'NoSignal' after execution of method encoder.turnoff().
+Add random label to new encoder in App.ts and randomDongle.ts.
 
-Check turnoff() method in Encoder class. Found that this method only disconnects one input.
+Add random labels to encoders/decoders in test files Encoder.spec.ts, Decoder.spec.ts, Output.spec.ts, OutputManager.spec.ts, Router.spec.ts
 
-Adjust turnoff() method to disconnect all inputs.
+2 ADD GETTER
 
-Run test again without failures.
+Add accessor label() to Dongle class
 
+3 TO DO: Add method 'addLabel()'
