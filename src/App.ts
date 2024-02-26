@@ -31,6 +31,11 @@ export const App = async (delayBetweenActions: number) => {
   // create last encoder with 2 inputs
   encoders.push(new Encoder(DongleModel.MNA440, `${ipPrefix}111`, 'CAMERA 1'));
 
+  // check new feature
+  const encoder = new Encoder(DongleModel.MNA240, '192.168.0.1');
+  encoder.addLabel('CAMERA 1');
+  console.log(encoder.label);
+
   console.log(
     `==============================================================================================`,
   );

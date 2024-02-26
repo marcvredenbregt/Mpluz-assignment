@@ -19,10 +19,10 @@ export class Encoder extends Dongle {
   constructor(
     model: DongleModel,
     ip: string,
-    label: string | null,
+    label?: string,
     private events: Events = Events.getInstance(),
   ) {
-    super(model, DongleType.Encoder, ip, label);
+    super(model, DongleType.Encoder, ip, label !== undefined ? label : null);
     this.inputManager = new InputManager(this.id, this.connectors);
   }
 

@@ -57,6 +57,25 @@ export abstract class Dongle {
   }
 
   /**
+   * Set the label of the dongle
+   */
+  set label(label: string | null) {
+    if (label && label.length > 15) {
+      throw new Error('Label too long, maximum is 15 characters');
+    }
+    this._label = label;
+  }
+    
+  /**
+   * Add or change the label of the dongle
+   * @param label
+   * @returns
+   */
+  addLabel(label: string | null) {
+    this.label = label;
+  }
+
+  /**
    * Get the number of connectors
    */
   get connectors(): number {
