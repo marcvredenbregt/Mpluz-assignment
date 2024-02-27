@@ -11,7 +11,7 @@ describe('Decoder', () => {
   let decoder: Decoder;
   const model: DongleModel = DongleModel.MNA440;
   const ip: string = '192.168.0.1';
-  const label: string | null = 'MONITOR 1';
+  const label: string | null = null;
   const events: Events = Events.getInstance();
 
   beforeEach(() => {
@@ -35,7 +35,7 @@ describe('Decoder', () => {
 
   it('should route output to input', () => {
     const outputId = 1;
-    const encoder = new Encoder(DongleModel.MNA440, '192.168.0.2', 'CAMERA 1');
+    const encoder = new Encoder(DongleModel.MNA440, '192.168.0.2');
     encoder.connectInput(1);
     const input = encoder.getInput(1);
     decoder.connectOutput(outputId);
@@ -46,7 +46,7 @@ describe('Decoder', () => {
 
   it('should unroute output', () => {
     const outputId = 1;
-    const encoder = new Encoder(DongleModel.MNA440, '192.168.0.2', 'CAMERA 1');
+    const encoder = new Encoder(DongleModel.MNA440, '192.168.0.2');
     encoder.connectInput(1);
     const input = encoder.getInput(1);
     decoder.connectOutput(outputId);
@@ -58,7 +58,7 @@ describe('Decoder', () => {
 
   it('should handle input disconnected', () => {
     const outputId = 1;
-    const encoder = new Encoder(DongleModel.MNA440, '192.168.0.2', 'CAMERA 1');
+    const encoder = new Encoder(DongleModel.MNA440, '192.168.0.2');
     encoder.connectInput(1);
     const input = encoder.getInput(1);
     decoder.connectOutput(outputId);
@@ -91,5 +91,10 @@ describe('Decoder', () => {
       id: encoder.id,
       input: 1,
     });
+  });
+
+  it('should return the correct label', () => {
+    decoder.addLabel('MONITOR 1');
+    expect(decoder.label).toEqual('MONITOR 1');
   });
 });

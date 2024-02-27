@@ -8,7 +8,7 @@ describe('Encoder', () => {
   let encoder: Encoder;
 
   beforeEach(() => {
-    encoder = new Encoder(DongleModel.MNA240, '192.168.0.1', 'CAMERA 1');
+    encoder = new Encoder(DongleModel.MNA240, '192.168.0.1');
   });
 
   it('should connect an input', () => {
@@ -46,5 +46,10 @@ describe('Encoder', () => {
       const input = encoder.getInput(i);
       expect(input.state).toEqual(InputState.NoSignal);
     }
+  });
+
+  it('should return the correct label', () => {
+    encoder.addLabel('CAMERA 1');
+    expect(encoder.label).toEqual('CAMERA 1');
   });
 });

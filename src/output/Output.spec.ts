@@ -30,7 +30,7 @@ describe('Output', () => {
   });
 
   it('should be able to route an input', () => {
-    const encoder = new Encoder(DongleModel.MNA120, '10.74.25.11', 'CAMERA 1');
+    const encoder = new Encoder(DongleModel.MNA120, '10.74.25.11');
     encoder.connectInput(1);
     const input = encoder.getInput(1);
     output.route(input);
@@ -38,13 +38,13 @@ describe('Output', () => {
   });
 
   it('should throw when routing an input with no signal', () => {
-    const encoder = new Encoder(DongleModel.MNA120, '10.74.25.11', 'CAMERA 1');
+    const encoder = new Encoder(DongleModel.MNA120, '10.74.25.11');
     const input = encoder.getInput(1);
     expect(() => output.route(input)).toThrow('Input has no signal');
   });
 
   it('should be able to unroute the input', () => {
-    const encoder = new Encoder(DongleModel.MNA120, '10.74.25.11', 'CAMERA 1');
+    const encoder = new Encoder(DongleModel.MNA120, '10.74.25.11');
     encoder.connectInput(1);
     const input = encoder.getInput(1);
     output.route(input);

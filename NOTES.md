@@ -18,6 +18,14 @@ Add method 'addLabel()'.
 
 Add setter label() and string length limitation to Dongle class.
 
-Add new feature example to App.ts
+Add new feature example to App.ts.
 
-4 TO DO: Adjust test modules.
+4 ADD TESTS FOR NEW FEATURE
+
+Add new feature test for Encoder and Decoder to Encoder.spec.ts and Decoder.spec.ts.
+
+5 CLEAN UP
+
+Remove random labels added in step 1 if not relevant.
+
+Remove new feature example from App.ts.

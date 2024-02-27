@@ -20,9 +20,8 @@ export function generateRandomDongle(
   const model = getRandomEnum(DongleModel);
   const MAX_IP = 255;
   const ip = `${ipPrefix}${Math.floor(Math.random() * MAX_IP)}`;
-  const label = '';
 
-  return new dongleTypes[dongleType](model, ip, label);
+  return new dongleTypes[dongleType](model, ip);
 }
 
 /**
