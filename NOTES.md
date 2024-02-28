@@ -1,14 +1,16 @@
 Steps taken:
 
-Run test with 'npm run test' command.
+1 ANALYZE ROUTING
 
-Check file Encoder.spec.ts line 47 on failed test.
+    Add console logging in App.ts to check input and output state changes.
 
-Failure caused by an InputState not equal to 'NoSignal' after execution of method encoder.turnoff().
+Next steps:
 
-Check turnoff() method in Encoder class. Found that this method only disconnects one input.
+2 CHECK EVENT HANDLING
 
-Adjust turnoff() method to disconnect all inputs.
+3 MOVE EVENT HANDLING OUT OF DECODER TO ROUTER
 
-Run test again without failures.
+4 ADJUST TEST FILES
+
+5 CLEAN UP AND TEST
 
