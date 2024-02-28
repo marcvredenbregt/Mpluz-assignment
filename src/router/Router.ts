@@ -1,21 +1,29 @@
 import { isValidIp } from '../util/IpUtilities';
 import { Encoder } from '../encoder/Encoder';
 import { Decoder } from '../decoder/Decoder';
+import { Events } from '../event/Events';
+import { EventHandler } from '../event/EventHandler';
 
 export class Router {
   private _encoders: Encoder[] = [];
   private _decoders: Decoder[] = [];
+  private disconnectHandler: EventHandler;
 
   constructor(
     private _or: string,
     private _ip: string,
-  ) {
+    events = Events.getInstance(),
+    ) {
     if (!isValidIp(_ip)) {
       throw new Error('Invalid IP');
     }
     if (_or === '') {
       throw new Error('OR cannot be empty');
     }
+    this.disconnectHandler = new EventHandler(
+      this._decoders
+    );
+    events.on('inputDisconnected', () => this.disconnectHandler.handleInputDisconnected());
   }
 
   /**
@@ -95,4 +103,14 @@ export class Router {
       throw new Error('Input or output not found');
     }
   }
+
+  /**
+   * Handle input disconnected event (option a.)
+   */
+  // private handleInputDisconnected(): void {
+  //   console.log(`Handling input disconnected on decoder`);
+  //   this._decoders.forEach((decoder) => {
+  //     decoder.handleNoSignalInputs();
+  //   });
+  // }
 }

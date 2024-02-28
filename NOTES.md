@@ -8,9 +8,17 @@ Steps taken:
 
     Add console logging to follow inputDisconnected event handling steps.
 
-Next steps:
-
 3 MOVE EVENT HANDLING OUT OF DECODER TO ROUTER
+
+    Options:
+
+    a. Add method handleInputDisconnected() to Router class.
+
+    b. Create seperate EventHandler class.
+
+    Chose option b.: have an event listener in the Router class and a sperate class EventHandler located in the event sub-directory. The class has a method handleInputDisconnected() for handling the inputDisconnect event logic. This class can also be used for handling other types of events in the future. In the Router class, an instance of the EventHandler class is created and the decoders are passed to it.
+
+Next steps:
 
 4 ADJUST TEST FILES
 

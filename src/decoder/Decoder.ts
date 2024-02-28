@@ -3,7 +3,7 @@ import { DongleModel } from '../dongle/DongleModel';
 import { DongleType } from '../dongle/DongleType';
 import { Input } from '../input/Input';
 import { Output } from '../output/Output';
-import { Events } from '../event/Events';
+// import { Events } from '../event/Events';
 import { OutputManager } from '../output/OutputManager';
 
 export class Decoder extends Dongle {
@@ -20,11 +20,11 @@ export class Decoder extends Dongle {
   constructor(
     model: DongleModel,
     ip: string,
-    events: Events = Events.getInstance(),
+    // events: Events = Events.getInstance(),
   ) {
     super(model, DongleType.Decoder, ip);
     this.outputManager = new OutputManager(this.id, this.connectors);
-    events.on('inputDisconnected', () => this.handleInputDisconnected());
+    // events.on('inputDisconnected', () => this.handleInputDisconnected());
   }
 
   /**
@@ -72,8 +72,7 @@ export class Decoder extends Dongle {
   /**
    * Handle input disconnected event
    */
-  private handleInputDisconnected(): void {
-    console.log(`Handling input disconnected on decoder`, this.id);
+  handleNoSignalInputs(): void {
     this.outputManager.unrouteNoSignalInputs();
   }
 }

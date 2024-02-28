@@ -2,7 +2,7 @@
 
 import { Decoder } from './Decoder';
 import { DongleModel } from '../dongle/DongleModel';
-import { Events } from '../event/Events';
+// import { Events } from '../event/Events';
 import { OutputState } from '../output/OutputState';
 import { Encoder } from '../encoder/Encoder';
 import { EventEmitter } from 'events';
@@ -11,10 +11,10 @@ describe('Decoder', () => {
   let decoder: Decoder;
   const model: DongleModel = DongleModel.MNA440;
   const ip: string = '192.168.0.1';
-  const events: Events = Events.getInstance();
+  // const events: Events = Events.getInstance();
 
   beforeEach(() => {
-    decoder = new Decoder(model, ip, events);
+    decoder = new Decoder(model, ip);
   });
 
   it('should connect output', () => {
