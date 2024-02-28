@@ -136,8 +136,8 @@ console.log(
 
   console.log(`Disconnect encoder 8 input 1`);
   encoders[7].disconnectInput(1);
-  console.log('ENCODER 8 INPUT 1', encoders[7].getInput(1))
-  console.log('ENCODER 8 INPUT 2', encoders[7].getInput(2))
+  console.log('ENCODER 8 INPUT 1', encoders[7].getInput(1));
+  console.log('ENCODER 8 INPUT 2', encoders[7].getInput(2));
   console.log('DECODER 3 OUTPUT 1', decoders[2].getOutput(1));
   console.log('DECODER 4 OUTPUT 1', decoders[3].getOutput(1));
   console.log('DECODER 5 OUTPUT 1', decoders[4].getOutput(1));
@@ -148,8 +148,8 @@ console.log(
 
   console.log(`Disconnect encoder 8 input 2`);
   encoders[7].disconnectInput(2);
-  console.log('ENCODER 8 INPUT 1', encoders[7].getInput(1))
-  console.log('ENCODER 8 INPUT 2', encoders[7].getInput(2))
+  console.log('ENCODER 8 INPUT 1', encoders[7].getInput(1));
+  console.log('ENCODER 8 INPUT 2', encoders[7].getInput(2));
   console.log('DECODER 3 OUTPUT 1', decoders[2].getOutput(1));
   console.log('DECODER 4 OUTPUT 1', decoders[3].getOutput(1));
   console.log('DECODER 5 OUTPUT 1', decoders[4].getOutput(1));

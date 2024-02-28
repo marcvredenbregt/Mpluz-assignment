@@ -73,7 +73,7 @@ export class Decoder extends Dongle {
    * Handle input disconnected event
    */
   private handleInputDisconnected(): void {
-    console.log(`Handling input disconnected on decoder`);
+    console.log(`Handling input disconnected on decoder`, this.id);
     this.outputManager.unrouteNoSignalInputs();
   }
 }
