@@ -22,12 +22,14 @@ Steps taken:
 
     Moved test for handling input disconnected event from Decoder.spec.ts to new module EventHandler.spec.ts. Test passes, however one test in Decoder.spec.ts 'should handle input disconnected' now fails, while application itself runs ok, handling both 'inputDisconnected' events well.
 
-Next steps:
-
 5 INVESTIGATE FAILING TEST
 
-    Investigate and solve failing test:
+    Failing test:
     Decoder › should handle input disconnected
+    Cause: a single decoder cannot be tested on an inputDisconnected event, since handling of this event has been moved to Router.
+    Solution: moved inputDisconnected test from Decoder.spec.ts to Router.spec.tst. This way, an encoder and decoder will first be connected to a router before further testing.
+
+Next steps:
 
 6 CLEAN UP AND TEST
 

@@ -51,15 +51,4 @@ describe('Decoder', () => {
     const output = decoder.getOutput(outputId);
     expect(output.routedInput).toBeNull();
   });
-
-  it('should handle input disconnected', () => {
-    const outputId = 1;
-    const encoder = new Encoder(DongleModel.MNA440, '192.168.0.2');
-    encoder.connectInput(1);
-    const input = encoder.getInput(1);
-    decoder.connectOutput(outputId);
-    decoder.routeOutput(outputId, input);
-    encoder.disconnectInput(1);
-    expect(decoder.getOutput(1).routedInput).toBeNull();
-  });
 });

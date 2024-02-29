@@ -102,4 +102,19 @@ describe('Router initializing', () => {
     router.removeDecoder(decoder);
     expect(router.decoders).toEqual([]);
   });
+
+  it('should handle input disconnected', () => {
+    const router = new Router(or.valid, ip.valid);
+    const encoder = new Encoder(DongleModel.MNA240, '10.74.25.1');
+    router.addEncoder(encoder);
+    const decoder = new Decoder(DongleModel.MNA240, '10.74.25.2');
+    router.addDecoder(decoder);
+    const outputId = 1;
+    encoder.connectInput(1);
+    const input = encoder.getInput(1);
+    decoder.connectOutput(outputId);
+    decoder.routeOutput(outputId, input);
+    encoder.disconnectInput(1);
+    expect(decoder.getOutput(1).routedInput).toBeNull();
+  });
 });
