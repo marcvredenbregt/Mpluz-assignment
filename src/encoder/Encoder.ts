@@ -22,7 +22,7 @@ export class Encoder extends Dongle {
     label?: string,
     private events: Events = Events.getInstance(),
   ) {
-    super(model, DongleType.Encoder, ip, label !== undefined ? label : null);
+    super(model, DongleType.Encoder, ip, label ?? null);
     this.inputManager = new InputManager(this.id, this.connectors);
   }
 

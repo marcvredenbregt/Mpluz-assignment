@@ -23,7 +23,7 @@ export class Decoder extends Dongle {
     label?: string | null,
     events: Events = Events.getInstance(),
   ) {
-    super(model, DongleType.Decoder, ip, label !== undefined ? label : null);
+    super(model, DongleType.Decoder, ip, label ?? null);
     this.outputManager = new OutputManager(this.id, this.connectors);
     events.on('inputDisconnected', () => this.handleInputDisconnected());
   }

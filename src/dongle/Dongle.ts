@@ -3,6 +3,7 @@ import { DongleModel } from './DongleModel';
 import { DongleType } from './DongleType';
 
 export abstract class Dongle {
+  private static readonly MAX_LABEL_LENGTH: number = 15;
   private _id: string;
   private _model: DongleModel;
   private _type: DongleType;
@@ -51,17 +52,17 @@ export abstract class Dongle {
   get label(): string | null {
     if (this._label) {
       return this._label;
-    } else {
-      return 'No label'
     }
+ 
+    return 'No label'    
   }
 
   /**
    * Set the label of the dongle
    */
   set label(label: string | null) {
-    if (label && label.length > 15) {
-      throw new Error('Label too long, maximum is 15 characters');
+    if (label && label.length > Dongle.MAX_LABEL_LENGTH) {
+      throw new Error(`Label too long, maximum is ${  Dongle.MAX_LABEL_LENGTH  } characters`);
     }
     this._label = label;
   }
