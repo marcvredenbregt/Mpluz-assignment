@@ -40,7 +40,6 @@ export class Encoder extends Dongle {
    */
   disconnectInput(id: number): void {
     this.inputManager.disconnectInput(id);
-    console.log('EMIT', this.id, id);
     this.events.emit('inputDisconnected', { id: this.id, input: id });
   }
 

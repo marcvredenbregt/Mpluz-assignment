@@ -20,11 +20,9 @@ export class Decoder extends Dongle {
   constructor(
     model: DongleModel,
     ip: string,
-    // events: Events = Events.getInstance(),
   ) {
     super(model, DongleType.Decoder, ip);
     this.outputManager = new OutputManager(this.id, this.connectors);
-    // events.on('inputDisconnected', () => this.handleInputDisconnected());
   }
 
   /**

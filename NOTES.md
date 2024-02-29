@@ -29,7 +29,8 @@ Steps taken:
     Cause: a single decoder cannot be tested on an inputDisconnected event, since handling of this event has been moved to Router.
     Solution: moved inputDisconnected test from Decoder.spec.ts to Router.spec.tst. This way, an encoder and decoder will first be connected to a router before further testing.
 
-Next steps:
-
 6 CLEAN UP AND TEST
+
+    Removed outcommented code and previously added console logging for debugging.
+    Executed npm run lint, test and start. All satisfactory.
 

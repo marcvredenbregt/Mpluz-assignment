@@ -9,13 +9,13 @@ import { generateRandomDongle } from './util/randomDongle';
 const delayAndClear = async (delay: number): Promise<boolean> =>
   new Promise((resolve) => {
     setTimeout(() => {
-      // console.clear();
+      console.clear();
       resolve(true);
-    }, delay * 100);
+    }, delay * 1000);
   });
 
 export const App = async (delayBetweenActions: number) => {
-  // console.clear();
+  console.clear();
 
   const ipPrefix = '10.74.25.';
   const OR1 = new Router('OR1', `${ipPrefix}10`);
@@ -30,14 +30,8 @@ export const App = async (delayBetweenActions: number) => {
 
   // create last encoder with 2 inputs
   encoders.push(new Encoder(DongleModel.MNA440, `${ipPrefix}111`));
-console.log('ENCODER 8', encoders[7]);
-console.log('ENCODER 8 INPUT 1', encoders[7].getInput(1));
-console.log('ENCODER 8 INPUT 2', encoders[7].getInput(2));
-console.log('DECODER 1', decoders[0]);
-console.log('DECODER 1 OUTPUT 1', decoders[0].getOutput(1));
-console.log('DECODER 3 OUTPUT 1', decoders[2].getOutput(1));
-console.log('DECODER 5 OUTPUT 1', decoders[4].getOutput(1));
-console.log(
+
+  console.log(
     `==============================================================================================`,
   );
   console.log(
@@ -80,11 +74,6 @@ console.log(
     ` - Connect monitor to output 1 of decoder 3 model ${decoders[2].model}`,
   );
   decoders[2].connectOutput(1);
-  console.log('ENCODER 8 INPUT 1', encoders[7].getInput(1));
-  console.log('ENCODER 8 INPUT 2', encoders[7].getInput(2));
-  console.log('DECODER 3 OUTPUT 1', decoders[2].getOutput(1));
-  console.log('DECODER 4 OUTPUT 1', decoders[3].getOutput(1));
-  console.log('DECODER 5 OUTPUT 1', decoders[4].getOutput(1));
   await delayAndClear(delayBetweenActions);
 
   console.log(
@@ -105,11 +94,6 @@ console.log(
   OR1.route(encoders[7], 1, decoders[3], 1);
   console.log(` - Routed encoder 8 input 2 to decoder 5 output 1`);
   OR1.route(encoders[7], 2, decoders[4], 1);
-  console.log('ENCODER 8 INPUT 1', encoders[7].getInput(1));
-  console.log('ENCODER 8 INPUT 2', encoders[7].getInput(2));
-  console.log('DECODER 3 OUTPUT 1', decoders[2].getOutput(1));
-  console.log('DECODER 4 OUTPUT 1', decoders[3].getOutput(1));
-  console.log('DECODER 5 OUTPUT 1', decoders[4].getOutput(1));
   await delayAndClear(delayBetweenActions);
 
   console.log(
@@ -136,23 +120,13 @@ console.log(
 
   console.log(`Disconnect encoder 8 input 1`);
   encoders[7].disconnectInput(1);
-  console.log('ENCODER 8 INPUT 1', encoders[7].getInput(1));
-  console.log('ENCODER 8 INPUT 2', encoders[7].getInput(2));
-  console.log('DECODER 3 OUTPUT 1', decoders[2].getOutput(1));
-  console.log('DECODER 4 OUTPUT 1', decoders[3].getOutput(1));
-  console.log('DECODER 5 OUTPUT 1', decoders[4].getOutput(1));
-  
+
   console.log(
     `---------------------------------------------------------------------------------------------`,
   );
 
   console.log(`Disconnect encoder 8 input 2`);
   encoders[7].disconnectInput(2);
-  console.log('ENCODER 8 INPUT 1', encoders[7].getInput(1));
-  console.log('ENCODER 8 INPUT 2', encoders[7].getInput(2));
-  console.log('DECODER 3 OUTPUT 1', decoders[2].getOutput(1));
-  console.log('DECODER 4 OUTPUT 1', decoders[3].getOutput(1));
-  console.log('DECODER 5 OUTPUT 1', decoders[4].getOutput(1));
   await delayAndClear(delayBetweenActions);
 
   console.log(

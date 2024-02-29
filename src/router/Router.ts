@@ -103,14 +103,4 @@ export class Router {
       throw new Error('Input or output not found');
     }
   }
-
-  /**
-   * Handle input disconnected event (option a.)
-   */
-  // private handleInputDisconnected(): void {
-  //   console.log(`Handling input disconnected on decoder`);
-  //   this._decoders.forEach((decoder) => {
-  //     decoder.handleNoSignalInputs();
-  //   });
-  // }
 }
